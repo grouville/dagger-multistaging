@@ -1,0 +1,33 @@
+plan:
+    package: ./firstPart
+name: first
+inputs:
+    toto.email:
+        text: guillaume.derouville@gmail.com
+    toto.name:
+        text: grouville
+    toto.repository.authToken:
+        secret: ENC[AES256_GCM,data:KGJATRXKItqJv0nWrJFwUyCzJS43rsLFYRi0MuMBlQyWPdjIK3lqIQ==,iv:1/0+2eEn5YScjYintTLM6LGrqwXFGTgMAjzRkzSNZN8=,tag:jgkH1sbyTJyyQHykfJyi5Q==,type:str]
+    toto.repository.source:
+        dir:
+            path: ./gitRepo
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age1gxwmtwahzwdmrskhf90ppwlnze30lgpm056kuesrxzeuyclrwvpsupwtpk
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSA5bUMrR1U3UURwSXc4c0tV
+            NzYveHlTQ0tCQ1RsNUN5NWNxa054R0puK1JjCnZvcFdiakg5TGZ4WEJhQmx3VGFB
+            N0doNWFoZUVZNXFRNE5lYklXbFkxNE0KLS0tIGlKM0xkQWpsdnF4UWZqbktEK2lK
+            bnZ2V0RiZFR6eUJQSldrUWlIZHQrODQKUJXxEVYeyvnz7KC5JcrSvYp8R0EltHUB
+            HKQLMoLz6mXhxlYNXFCAFrPe7JKNGIrrdx3mfQ0pPYJRSRNXt57mUw==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2021-09-22T23:02:26Z"
+    mac: ENC[AES256_GCM,data:sKO98qX/VKI9K8Eh5h8xYw8B1wgT0jSlVaMp3/YxOB2V+L9xVbbxRfrF9LPCgZP+5pT4AdOfQyEojnDUT4GUqodLq/Y0CunavcTAwuf4S4OMY90t266raN3Kw2am8+kVLX8oI2cfDm2yoxg6hKAfewtmkS8xwlIs6ZsIrsEWFkw=,iv:sY6HZ/EQwA82Elm+eBYCg4QZ0inU0FYcgv24zQpHcOQ=,tag:MGCfdjNAa03JBmhUWbDkoQ==,type:str]
+    pgp: []
+    encrypted_suffix: secret
+    version: 3.7.1

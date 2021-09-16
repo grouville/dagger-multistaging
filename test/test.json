@@ -1,0 +1,8 @@
+{
+  "url": "https://github.com/grouville/test-multiregistry.git",
+  "references": [
+    "refs/heads/2",
+    "refs/heads/1",
+    "refs/heads/main"
+  ]
+}
