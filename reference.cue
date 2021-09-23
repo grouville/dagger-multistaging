@@ -1,4 +1,4 @@
-package first
+package microstaging
 
 import(
 	"alpha.dagger.io/dagger"
@@ -6,18 +6,10 @@ import(
 	"alpha.dagger.io/os"
 )
 
-// #Microstage: {
-// 	// Git repository to load
-// 	repo: dagger.#Input & { dagger.#Artifact }
-// }
-toto: #References
 #References: {
 	repository: {
-		// Git repository to extract reference from
-		source: dagger.#Input & { dagger.#Artifact }
-
 		// Git Auth Token
-		authToken: dagger.#Input & { *null | dagger.#Secret } // To change
+		authToken: *null | dagger.#Secret
 		
 		// Repo's version control provider
 		provider: dagger.#Input & { *"github" | "gitlab" }
@@ -27,6 +19,9 @@ toto: #References
 		
 		// Remote Name
 		remote: dagger.#Input & { *"origin" | string }
+
+		// Git repository to extract reference from
+		source: dagger.#Input & { dagger.#Artifact }
 	}
 
 	// Username
@@ -79,7 +74,7 @@ toto: #References
 	}.contents & dagger.#Output
 }
 
-#Command: """
+#Command: #"""
     # Collect repo's URL in HTTPS format
     # Version control agnostic command (Github/Gitlab)
     # protocol agnostic (SSH or HTTPS Base url)
@@ -93,4 +88,4 @@ toto: #References
 
     # Compute as JSON
     jo -p url="$HTTPS$URL" references=$REFERENCES > /output.json
-    """
+    """#
