@@ -15,7 +15,7 @@ import(
 		provider: dagger.#Input & { *"github" | "gitlab" }
 
 		// Ref type
-		refType: dagger.#Input & { *"pr" | "branch" | "tag" }
+		refType: dagger.#Input & { "pr" | *"branch" | "tag" }
 		
 		// Remote Name
 		remote: dagger.#Input & { *"origin" | string }
@@ -80,11 +80,11 @@ import(
     # protocol agnostic (SSH or HTTPS Base url)
     HTTPS='https://'
     URL=$(git -c user.name="$USER_NAME" -c user.email="$USER_EMAIL" ls-remote --get-url "$REMOTE" |
-        sed 's/https:\\/\\///' | sed 's/git@//' | tr ':' '/' | head -n 1)
+        sed 's/https:\/\///' | sed 's/git@//' | tr ':' '/' | head -n 1)
 
     # Collect references
     REFERENCES=$(jo -e -a $(git -c user.name="$USER_NAME" -c user.email="$USER_EMAIL" ls-remote "$REMOTE" "$REF" -q |
-        cut -d$'\\t' -f 2 | sed '/\\^/d' | sed '/HEAD/d'))
+        cut -d$'\t' -f 2 | sed '/\^/d' | sed '/HEAD/d'))
 
     # Compute as JSON
     jo -p url="$HTTPS$URL" references=$REFERENCES > /output.json

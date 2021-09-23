@@ -1,6 +1,8 @@
 package microstaging
 
 import (
+	"encoding/json"
+
 	"alpha.dagger.io/dagger"
 	"alpha.dagger.io/netlify"
 )
@@ -21,7 +23,7 @@ multistageDeployment: {
 
 	// Deploy on all refs
 	deployments: #MultiDeployment & {
-		"refs": refs.out
+		"refs": json.Unmarshal(refs.out)
 		"authToken": gitAuthToken
 	}
 }

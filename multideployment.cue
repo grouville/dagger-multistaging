@@ -1,7 +1,6 @@
 package microstaging
 
 import (
-	"encoding/json"
 	"strings"
 
 	"alpha.dagger.io/dagger"
@@ -13,7 +12,7 @@ import (
 // Apply Deployment on each Git ref
 #MultiDeployment: {
 	// References collected as JSON
-	refs:  json.Unmarshal(dagger.#Artifact)
+	refs:  dagger.#Artifact
 
 	// Git Auth Token
 	authToken: dagger.#Secret
