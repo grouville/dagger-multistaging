@@ -1,8 +1,0 @@
-{
-  "url": "https://github.com/dagger/dagger.git",
-  "references": [
-    "refs/tags/v0.1.0-alpha.5",
-    "refs/tags/v0.1.0-alpha.17",
-    "refs/tags/v0.1.0-alpha.12"
-  ]
-}

@@ -1,21 +1,18 @@
 plan:
-    package: .
+    package: ./simpleApp
 name: main
 inputs:
-    deployment.gitAuthToken:
-        secret: ENC[AES256_GCM,data:ThxKe95zGwbXsG+0AzPTjrujIUDCPzEegHWSUSBPfvycba/EoCwA+w==,iv:fuy29m0PPkjrl+TVhmEhYw0bcDByy3mi2qZo+MxcXnI=,tag:IX0dL3Pid4jgT+s1ze2OYA==,type:str]
-    deployment.refs:
-        json: |
-            {
-              "url": "https://github.com/grouville/test-multiregistry.git",
-              "references": [
-                "refs/heads/2",
-                "refs/heads/1",
-                "refs/heads/main"
-              ]
-            }
-    netlifyAccount.token:
-        secret: ENC[AES256_GCM,data:YNkzaQapApqd/dOwg7l2WnQ9WJXahMckmtb+d77+23a7WnBVkTqCwqrh3A==,iv:SWM53jLgVN/CKfaIH6e0766IvPiXluFBq8ZZckdY9Hc=,tag:jYxAegdnQEl/g9+FEEWVQA==,type:str]
+    multistageDeployment.deploymentInputs.netlifyAccount.token:
+        secret: ENC[AES256_GCM,data:Anq5h6bqeGjzWRoFxcDgcSlxLOMChPL4iwWXzWdHTcRlsWSjJHpDL6rYsQ==,iv:7qNGic/mmyvSHcZR+AzlfVK0BgSVOVM/rXusv0yFzFw=,tag:1zXLQTGNMIrMvTM4RicECw==,type:str]
+    multistageDeployment.gitAuthToken:
+        secret: ENC[AES256_GCM,data:iZSt9Ho7luNfw0aFkHByr1B5aTDl+TFIrcZPkq7cxnkw67V9sBUf7Q==,iv:bL4iSR59KNJ7QMQOHi3U1Y/T1bUW5hETZiTz6XsgcUw=,tag:Cn7mveF+3wpFMceJ1QXukQ==,type:str]
+    multistageDeployment.refs.email:
+        text: guillaume.derouville@gmail.com
+    multistageDeployment.refs.name:
+        text: grouville
+    multistageDeployment.refs.repository.source:
+        dir:
+            path: ./simpleApp/gitRepo
 sops:
     kms: []
     gcp_kms: []
@@ -31,8 +28,8 @@ sops:
             akI1a2ZOUzFTUXg5S01BZm9wd3dkWk0KYCJi1kySc7UhHdwVB5KXDiyBQTFzG0mh
             lIP6DEIG8SBqkBnrIQrugwo/BlzD/CB5XzB5XEViGZdUEdnOr9vCCg==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2021-09-22T22:01:50Z"
-    mac: ENC[AES256_GCM,data:gi9P3XfZx36GJxyqSNkzmaYgBTYOJtBEktba3nd+A3tFa2TsfBys/i6ZEZBgXjFvTt6y3BLSAV1Bt85x+VaK1sDvYsJTQz1tKnY7P2Ijl+VoHAz1z4Rsf40hRT35EVYUEoLc6lcZw1rGPqhGo0ARcf0lyb4Z8T0FH2MdbwUpXVU=,iv:TPSxhg9hhLQTISRvA2w0L60uvjifri0hNphXZ706sM4=,tag:xj2zHHY7YYNdh6nLPzaztw==,type:str]
+    lastmodified: "2021-09-26T18:18:56Z"
+    mac: ENC[AES256_GCM,data:321dk3fwcEjj1yOBxIFwgFNSZFOD5akfB3u8scDKY3Che0Yt9jL8ysd56CyZG3kwSS4D3G47U4sxI2CGGSWzY9ZEr67PWIWXehQrCd8b6HPCZsrDQ5LeYVWwHgNo7QHqcyVPcW5t/LgbEzUtRRvEsPBVG7DLI0fSdb8BQIJFyNQ=,iv:8nTe6MPu0g+BEdEWTy3tL2+Ht19zaKDgDFJj7ynz74Y=,tag:lv7WPDcGPmIbgL0wwpDECQ==,type:str]
     pgp: []
     encrypted_suffix: secret
     version: 3.7.1
