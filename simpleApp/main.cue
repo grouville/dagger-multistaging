@@ -7,6 +7,7 @@ import (
 	"alpha.dagger.io/dagger"
 	"alpha.dagger.io/netlify"
 	"alpha.dagger.io/os"
+	multistage "github.com/grouville/dagger-multistaging-environment"
 )
 
 inputs: {
@@ -21,12 +22,12 @@ inputs: {
 
 multistageDeployment: {
 	// Collect references
-	refs: #References & {
+	refs: multistage.#References & {
 		repository: authToken: inputs.gitAuthToken
 	}
 
 	// Compute all refs as [name: #Deployment]
-	deployments: #MultiDeployment & {
+	deployments: multistage.#MultiDeployment & {
 		"refs": json.Unmarshal(refs.out)
 		"authToken": inputs.gitAuthToken
 	}
