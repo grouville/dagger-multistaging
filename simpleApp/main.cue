@@ -7,7 +7,7 @@ import (
 	"alpha.dagger.io/dagger"
 	"alpha.dagger.io/netlify"
 	"alpha.dagger.io/os"
-	multistage "github.com/grouville/dagger-multistaging-environment"
+	multistage "github.com/grouville/dagger-multistaging/multistage"
 )
 
 inputs: {

@@ -1,12 +1,8 @@
-package microstaging
+package multistage
 
 import (
-	// "strings"
-
 	"alpha.dagger.io/dagger"
 	"alpha.dagger.io/git"
-	// "alpha.dagger.io/netlify"
-	// "alpha.dagger.io/os"
 )
 
 // Apply Deployment on each Git ref

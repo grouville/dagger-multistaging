@@ -1,4 +1,4 @@
-package microstaging
+package multistage
 
 import(
 	"alpha.dagger.io/dagger"
