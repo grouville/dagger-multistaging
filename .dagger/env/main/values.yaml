@@ -2,10 +2,10 @@ plan:
     package: ./simpleApp
 name: main
 inputs:
-    multistageDeployment.deploymentInputs.netlifyAccount.token:
-        secret: ENC[AES256_GCM,data:Anq5h6bqeGjzWRoFxcDgcSlxLOMChPL4iwWXzWdHTcRlsWSjJHpDL6rYsQ==,iv:7qNGic/mmyvSHcZR+AzlfVK0BgSVOVM/rXusv0yFzFw=,tag:1zXLQTGNMIrMvTM4RicECw==,type:str]
-    multistageDeployment.gitAuthToken:
-        secret: ENC[AES256_GCM,data:iZSt9Ho7luNfw0aFkHByr1B5aTDl+TFIrcZPkq7cxnkw67V9sBUf7Q==,iv:bL4iSR59KNJ7QMQOHi3U1Y/T1bUW5hETZiTz6XsgcUw=,tag:Cn7mveF+3wpFMceJ1QXukQ==,type:str]
+    inputs.deploymentInputs.netlifyAccount.token:
+        secret: ENC[AES256_GCM,data:zcRfSC9oI4RkkC94o7co/IlqqspigyrNjRPuHexJu/Kys6hMuNvs/fView==,iv:g+r9xLeVh/blodANGRvWk15meC4Ysp+NVrBAAkEm5tY=,tag:GiJitZ6jfkCgZpK/DpzMRw==,type:str]
+    inputs.gitAuthToken:
+        secret: ENC[AES256_GCM,data:1nptmr8O8aoKb76E2/+L7uUmQpvsitdzBaa403KmkK6iGnlAfrGbiQ==,iv:nyvIQS9jVlYALHR7dyoUcGc206vhgysru/6ELXL9ikU=,tag:UkP7gTzk9Psn0g0nk0YuOQ==,type:str]
     multistageDeployment.refs.email:
         text: guillaume.derouville@gmail.com
     multistageDeployment.refs.name:
@@ -28,8 +28,8 @@ sops:
             akI1a2ZOUzFTUXg5S01BZm9wd3dkWk0KYCJi1kySc7UhHdwVB5KXDiyBQTFzG0mh
             lIP6DEIG8SBqkBnrIQrugwo/BlzD/CB5XzB5XEViGZdUEdnOr9vCCg==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2021-09-26T18:18:56Z"
-    mac: ENC[AES256_GCM,data:321dk3fwcEjj1yOBxIFwgFNSZFOD5akfB3u8scDKY3Che0Yt9jL8ysd56CyZG3kwSS4D3G47U4sxI2CGGSWzY9ZEr67PWIWXehQrCd8b6HPCZsrDQ5LeYVWwHgNo7QHqcyVPcW5t/LgbEzUtRRvEsPBVG7DLI0fSdb8BQIJFyNQ=,iv:8nTe6MPu0g+BEdEWTy3tL2+Ht19zaKDgDFJj7ynz74Y=,tag:lv7WPDcGPmIbgL0wwpDECQ==,type:str]
+    lastmodified: "2021-09-27T13:09:45Z"
+    mac: ENC[AES256_GCM,data:RQoPrR073kO2e2qqnLfSicO4liFjsZacDBM4U1E/ij7NLAedaARS4Z6TFmA1NrcbVcjFpMMrwIjCTAi1E9wglgWhuI7mPcADc28+t3qEPD75bFadq7PbCA4VjeslgOATD3/Wr41XJT8Nqo/ZMlvdxmyPSdADiOd36nqbYfdKnfs=,iv:SVGdASeuQc9Pon6JZct7qJZ8MANVIuFCpczBL2ibDi4=,tag:ZmbpRDt9hhYIdX4UzyiFHQ==,type:str]
     pgp: []
     encrypted_suffix: secret
     version: 3.7.1

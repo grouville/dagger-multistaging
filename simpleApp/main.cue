@@ -2,12 +2,14 @@ package microstaging
 
 import (
 	"encoding/json"
+	"strings"
 
 	"alpha.dagger.io/dagger"
 	"alpha.dagger.io/netlify"
+	"alpha.dagger.io/os"
 )
 
-multistageDeployment: {
+inputs: {
 	// Git Auth Token
 	gitAuthToken: dagger.#Input & { dagger.#Secret }
 
@@ -15,15 +17,37 @@ multistageDeployment: {
 	deploymentInputs: {
 		netlifyAccount: netlify.#Account
 	}
+}
 
+multistageDeployment: {
 	// Collect references
 	refs: #References & {
-		repository: authToken: gitAuthToken
+		repository: authToken: inputs.gitAuthToken
 	}
 
-	// Deploy on all refs
+	// Compute all refs as [name: #Deployment]
 	deployments: #MultiDeployment & {
 		"refs": json.Unmarshal(refs.out)
-		"authToken": gitAuthToken
+		"authToken": inputs.gitAuthToken
+	}
+
+	out: {
+		// [string]: #Deployment
+		[string]: netlify.#Site
+		// Loop on all deployments
+		for key, def in deployments.out {
+			// Add all required deployment definitions below =>
+			// Frontend deployment definition
+			"\(key)-frontend": netlify.#Site & {
+				"account":  inputs.deploymentInputs.netlifyAccount
+				"contents": os.#Dir & {
+					from: def.src
+					path: "./src"
+				}
+				"name": strings.Replace(
+					strings.Replace(def.name, "/", "-", -1),
+				".", "_", -1)
+			}
+		}
 	}
 }
