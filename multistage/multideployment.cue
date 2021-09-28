@@ -5,8 +5,9 @@ import (
 	"alpha.dagger.io/git"
 )
 
-// Apply Deployment on each Git ref
-#MultiDeployment: {
+// Compute each ref, and export back chosen keys
+// Here: git repo at specific ref and name
+#ComputedRefs: {
 	// References collected as JSON
 	refs:  dagger.#Artifact
 
@@ -16,10 +17,10 @@ import (
 	if refs.references != null {
 		// Iterate on references 
 		out: {
-			[string]: #Deployment
+			[string]: #OutputRef
 
 			for val in refs.references {
-				"\(val)": #Deployment & {
+				"\(val)": #OutputRef & {
 					// Compute src directory
 					src: git.#Repository & {
 						remote:      refs.url
@@ -34,8 +35,9 @@ import (
 	}
 }
 
-// Wraps all deployments #Def to apply on a Git ref
-#Deployment: {
+// Wraps all outputed keys to export
+// from ref computation
+#OutputRef: {
 	// Git ref source directory
 	src: dagger.#Artifact
 

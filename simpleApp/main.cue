@@ -27,7 +27,7 @@ multistageDeployment: {
 	}
 
 	// Compute all refs as [name: #Deployment]
-	deployments: multistage.#MultiDeployment & {
+	computedRefs: multistage.#ComputedRefs & {
 		"refs": json.Unmarshal(refs.out)
 		"authToken": inputs.gitAuthToken
 	}
@@ -35,8 +35,9 @@ multistageDeployment: {
 	out: {
 		// [string]: #Deployment
 		[string]: netlify.#Site
-		// Loop on all deployments
-		for key, def in deployments.out {
+
+		// Loop on all computed Refs to apply deployment on it
+		for key, def in computedRefs.out {
 			// Add all required deployment definitions below =>
 			// Frontend deployment definition
 			"\(key)-frontend": netlify.#Site & {
