@@ -12,23 +12,23 @@ import(
 		authToken: *null | dagger.#Secret
 		
 		// Repo's version control provider
-		provider: dagger.#Input & { *"github" | "gitlab" }
+		provider: *"github" | "gitlab"
 
 		// Ref type
-		refType: dagger.#Input & { "pr" | *"branch" | "tag" }
+		refType: *"pr" | "branch" | "tag"
 		
 		// Remote Name
-		remote: dagger.#Input & { *"origin" | string }
+		remote: *"origin" | string
 
 		// Git repository to extract reference from
-		source: dagger.#Input & { dagger.#Artifact }
+		source: dagger.#Artifact
 	}
 
 	// Username
-	name: dagger.#Input & { string }
+	name: string
 
 	// Email
-	email: dagger.#Input & { string }
+	email: string
 
 	// Execute and extract from
 	_ctr: os.#Container & {
