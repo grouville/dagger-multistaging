@@ -1,0 +1,47 @@
+plan:
+    package: ./JAMStack
+name: jamstack
+inputs:
+    deployment.docs.secrets.OAUTH_ENABLE:
+        secret: ENC[AES256_GCM,data:0bLNrA==,iv:orMI7y3PMW2Avoep/bDALPjpTuNQHYcnKNWr4PSZodM=,tag:UagQZ0U9jArozXLlCjrpaQ==,type:str]
+    deployment.docs.secrets.REACT_APP_API_PROXY_ENABLE:
+        secret: ENC[AES256_GCM,data:rukK1Q==,iv:Z7pkOSUFe6ZwLs58c7GwQDokCosBPWYc11YnrmykkAw=,tag:98xWfTEMQx/v36xC7kth2w==,type:str]
+    deployment.docs.secrets.REACT_APP_CLIENT_ID:
+        secret: ENC[AES256_GCM,data:JnE5+ek3VERQG5M5M7RCb655M8E=,iv:Mc60Jq3Y8GwkjxO8eRPsYc6Ntz5l7h/v7KrlZNxMo+o=,tag:z09Gqd7O5LgGWvYq+ghfeg==,type:str]
+    deployment.docs.secrets.REACT_APP_CLIENT_SECRET:
+        secret: ENC[AES256_GCM,data:LsZKvcxdcM0Ez4w0ugbHWRe/D+O41+biOK0RW9dGdjM0iHe+pq9iYg==,iv:eLPlAZOlfsudex0KTzQ2qksdKxoO/CXGNgBjOQhCJJ8=,tag:lzZdO8WaskWFobTRf7M4Fg==,type:str]
+    deployment.docs.secrets.REACT_APP_DAGGER_SITE_URI:
+        secret: ENC[AES256_GCM,data:FAbQQqXhrsgw+S8JF4GmGTw=,iv:9AG+2pXh7frA5XdT481BiAOY8C9wMfoY6FjSvIIT0Ks=,tag:5vhUhvwq+59xD6p0vvZ7jA==,type:str]
+    deployment.docs.secrets.REACT_APP_GITHUB_AUTHORIZE_URI:
+        secret: ENC[AES256_GCM,data:Dyt3I9n2VETJcACL8av3lDNR0HmH7vbWx2E5fAZhdx+JloJtL8oMKxt8FkBxlDgAhc41x7owgfFp3n2FsGbM7sOUsEr+ktXnqlRSyIY+Qj2tFvEF+poS9sLOF64xkmBgneI8aYKie+HHPebg5jcKe01AwEE45VWakTxPa/EAqDtLf/lm/g==,iv:1BYCBkzFKN32yQ6m6nWEwW8ZPFcBQKL/R7vGUrG3oiQ=,tag:4hTRFzdhbLDpbqOJGbnvrA==,type:str]
+    deployment.docs.secrets.REACT_APP_OAUTH_SCOPE:
+        secret: ENC[AES256_GCM,data:wb0kB7IlYIg82g==,iv:gEqmYx/3jJXrHOMzVGXNopmlAxZJTAZvqKFft4Kuk44=,tag:A/i3bB45di7G7WysEhBlAw==,type:str]
+    netlifyAccount.token:
+        secret: ENC[AES256_GCM,data:HlDQxFeGVlwAo6KqLu7TLzRrDCP+rD5m2MBQT8TiBqcjSbvXmuhHz6wgjQ==,iv:9Ug8VHplnp/jGogZGJr39EHg+MNTlf13i6oSeWOpnxo=,tag:WyFFZsQ4lLdOzAtx6zWE0g==,type:str]
+    repository:
+        dir:
+            path: ./dagger
+            exclude:
+                - '**/node_modules'
+                - cmd/dagger/dagger
+                - cmd/dagger/dagger-debug
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age1gxwmtwahzwdmrskhf90ppwlnze30lgpm056kuesrxzeuyclrwvpsupwtpk
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBFeGY2bCtvbXROdUcxMUxN
+            WTljNTFmcVR3TFVpcGNqS2hTekpvZ01DbWkwCi9DMnhKSEhkMHBVcDk4T25yYWtF
+            czhKeHNtdjJSTk9jU25yOVptRzJZRXcKLS0tIFJEWUJRcWVYb1Axb3NnQ0JRNERY
+            WW9KcEpRckEwcTllU0k2OTZzSUFvelUKBn5wtjlRDpLO5IxzNi7IhfeK4YQo/C6A
+            ZoHrpRIwPMvaaOY2dBkK224SUSizjBzeBM1B/1a03J051cpuobOSAA==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2021-10-14T15:43:51Z"
+    mac: ENC[AES256_GCM,data:amVYmGVGY4svhAFHpdgDk9zZjTPcv2HuG9XaDxV/ZC60gs/MveMSb3i1TCJ93ZUlMDDnEZXTiwRUELSBRAq/q5NO33o49/1pR0EnJfyddtutA6QKyehmJqePaHzBwhsiTLudQSrr0U3idx5Nl5hB+urpMRP/Qs3Az/adojVRNKs=,iv:6H38eejl0BwLonQBh7/Fb+aaPZJQVVv48qBGXwocpQI=,tag:GRC7HenzvFlinWq2DS4Haw==,type:str]
+    pgp: []
+    encrypted_suffix: secret
+    version: 3.7.1
