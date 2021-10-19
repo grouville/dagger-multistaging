@@ -1,5 +1,5 @@
 plan:
-    package: ./JAMStack
+    package: ./examples/jamstack
 name: jamstack
 inputs:
     deployment.docs.secrets.OAUTH_ENABLE:
@@ -40,8 +40,8 @@ sops:
             WW9KcEpRckEwcTllU0k2OTZzSUFvelUKBn5wtjlRDpLO5IxzNi7IhfeK4YQo/C6A
             ZoHrpRIwPMvaaOY2dBkK224SUSizjBzeBM1B/1a03J051cpuobOSAA==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2021-10-14T15:43:51Z"
-    mac: ENC[AES256_GCM,data:amVYmGVGY4svhAFHpdgDk9zZjTPcv2HuG9XaDxV/ZC60gs/MveMSb3i1TCJ93ZUlMDDnEZXTiwRUELSBRAq/q5NO33o49/1pR0EnJfyddtutA6QKyehmJqePaHzBwhsiTLudQSrr0U3idx5Nl5hB+urpMRP/Qs3Az/adojVRNKs=,iv:6H38eejl0BwLonQBh7/Fb+aaPZJQVVv48qBGXwocpQI=,tag:GRC7HenzvFlinWq2DS4Haw==,type:str]
+    lastmodified: "2021-10-19T09:11:12Z"
+    mac: ENC[AES256_GCM,data:uNr7MtSINXm3onC7A9tQ/8MPfzEJ9HpmiLkKty2Nyz+a/6ZYGzX34FTQEDzXgX00Q7Oh3zLCM+WldPL6NfbJbTiXxW9/z/+/vr+jFgEJ2eQb+k2f+equMwNs7Kszz5PoUQ8aauqvqnhlAsHv4z1HtNlCJMgurJtBhCqo7Bi4o94=,iv:VL9/Jzme0ri/Ek4pppViz3wOZDzc3WO93wO4gCO+Dq8=,tag:+AoLj7cUPRSwh2DFhlge6A==,type:str]
     pgp: []
     encrypted_suffix: secret
     version: 3.7.1
